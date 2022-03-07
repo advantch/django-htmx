@@ -10,13 +10,17 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Run 
+### Run
 
 ```
 python manage.py runserver 0.0.0.0:8000
+
+or 
+
+make run
 ```
 
-### Add a new app 
+### Add a new app
 
 ```
 mkdir apps/app-name
