@@ -6,16 +6,16 @@
         <h2 class="font-semibold text-2xl mt-12 text-gray-700">Search Metrics</h2>
         <div class="flex my-3 space-x-2">
             <button hx-post="{% url "search_metrics:seed-db" %}" hx-indicator="#seeddb" hx-target="#tableContainer" hx-swap="outerHTML"
-                    class="inline-flex items-center px-1 py-1.5 border border-gray-300 dark:border-gray-100 shadow-sm
-                    text-xs font-medium rounded text-gray-700 dark:text-white bg-white dark:bg-gray-600 hover:bg-gray-50
-                    dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-              &#10010; Seed DB
+                class="inline-flex items-center px-1 py-1.5 border border-gray-300 dark:border-gray-100 shadow-sm
+                text-xs font-medium rounded text-gray-700 dark:text-white bg-white dark:bg-gray-600 hover:bg-gray-50
+                dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                &#10010; Seed DB
             </button>
             <button hx-delete="{% url "search_metrics:clear-db" %}" hx-indicator="#cleardb" hx-target="#tableContainer" hx-swap="outerHTML"
-                    class="inline-flex items-center px-1 py-1.5 border border-gray-300 dark:border-gray-100 shadow-sm
-                    text-xs font-medium rounded text-gray-700 dark:text-white bg-white dark:bg-gray-600 hover:bg-gray-50
-                    dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-              &#10007; Clear DB
+                class="inline-flex items-center px-1 py-1.5 border border-gray-300 dark:border-gray-100 shadow-sm
+                text-xs font-medium rounded text-gray-700 dark:text-white bg-white dark:bg-gray-600 hover:bg-gray-50
+                dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                &#10007; Clear DB
             </button>
         </div>
         <div>

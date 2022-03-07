@@ -18,10 +18,9 @@ app: ## make a new app
 	mkdir ./apps/$(a)
 	django-admin startapp $(a) ./apps/$(a)
 
+migrate: ## migrate
+	python3 manage.py makemigrations
+	python3 manage.py migrate
 
-migrate:
-	python manage.py makemigrations
-	python manage.py migrate
-
-seed_db:
+seed_db: ## seed db
 	python3 manage.py seed_db
