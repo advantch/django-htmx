@@ -1,2 +1,4 @@
 django==4.0
 django_tables2==2.4.1
+
+pytest==7.0.1
