@@ -1,4 +1,8 @@
 django==4.0
 django_tables2==2.4.1
 django-htmx==1.9.0
+django-model-utils==4.2.0
 pytest==7.0.1
+factory_boy==3.2.1
+Faker~=13.3.0
+shortuuid==1.0.8

@@ -1,3 +1,38 @@
-{% load static %}
-<script src="{% static 'js/htmx/htmx.min.js' %}" defer></script>
-<script src="{% static 'js/htmx/debug.js' %}" defer></script>
+{% load static i18n %}
+<!DOCTYPE html>
+{% get_current_language as language_code %}
+
+<html lang="{{ language_code }}">
+
+    <head>
+        <title>{% spaceless %}{% block title %}{% endblock %}{% endspaceless %} </title>
+        <meta charset="UTF-8">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="{% static 'css/site.css' %}"/>
+
+        {% block extra_css %}{% endblock %}
+        {% block head_js %}{% endblock %}
+
+        <!--Dont use this in production -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="{% static 'js/htmx/htmx.min.js' %}" defer></script>
+        <script src="{% static 'js/htmx/debug.js' %}" defer></script>
+
+    </head>
+
+    <body id="id-body" class="bg-slate-100"  hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+
+        {% block content %}
+
+        {% endblock %}
+
+
+        {% block footer_js %}
+
+        {% endblock %}
+
+    </body>
+</html>
