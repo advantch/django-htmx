@@ -2,7 +2,6 @@ from django.db import models
 from model_utils.models import UUIDModel
 
 
-# Create your models here.
 class SearchMetric(UUIDModel):
     client_ip = models.GenericIPAddressField()
     hits = models.IntegerField(null=True)
