@@ -15,5 +15,5 @@ lint: ## lint & format
 	pre-commit run --all-files
 
 app: ## make a new app
-	mkdir apps/$(a)
-	djangoadmin startapp $(a) ./apps/$(a)
+	mkdir ./apps/$(a)
+	django-admin startapp $(a) ./apps/$(a)
