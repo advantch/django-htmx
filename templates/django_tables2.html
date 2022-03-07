@@ -1,7 +1,7 @@
 {% load django_tables2 %}
 {% load i18n %}
 {% block table-wrapper %}
-    <div class="w-full flex flex-col" id="tableContainer">
+    <div class="w-full flex flex-col">
         <div class="shadow overflow-hidden border dark:border border-gray-200 sm:rounded-lg max-h-[600px] overflow-y-auto">
             {% block table %}
                 <table class="min-w-full divide-y divide-gray-200" {% render_attrs table.attrs %}>

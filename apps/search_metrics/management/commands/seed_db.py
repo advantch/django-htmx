@@ -26,7 +26,7 @@ class Command(BaseCommand):
         self.stdout.write("Done.")
 
 
-def mock_search_metrics(rows=1000):
+def mock_search_metrics(rows=100000):
     for i in range(rows):
         Faker.seed(random.randint(100, 10000))
         obj = SearchMetric(
