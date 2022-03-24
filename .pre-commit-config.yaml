@@ -24,3 +24,10 @@ repos:
     rev: 4.0.1
     hooks:
       - id: flake8
+
+  - repo: https://github.com/rtts/djhtml
+    rev: v1.4.11
+    hooks:
+      - id: djhtml
+    args:
+      - --tabwidth=2

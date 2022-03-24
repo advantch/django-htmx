@@ -9,7 +9,7 @@ help:  ## makefile documentation.
 	@sed -ne '/@sed/!s/## //p' $(MAKEFILE_LIST)
 
 run: ## run project
-	python manage.py runserver 0.0.0.0:8000
+	python3 manage.py runserver 0.0.0.0:8000
 
 lint: ## lint & format
 	pre-commit run --all-files
@@ -17,3 +17,10 @@ lint: ## lint & format
 app: ## make a new app
 	mkdir ./apps/$(a)
 	django-admin startapp $(a) ./apps/$(a)
+
+migrate: ## migrate
+	python3 manage.py makemigrations
+	python3 manage.py migrate
+
+seed_db: ## seed db
+	python3 manage.py seed_db
