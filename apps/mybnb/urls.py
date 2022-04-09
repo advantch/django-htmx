@@ -5,7 +5,7 @@ from .views import preview_home, search
 
 app_name = "mybnb"
 urlpatterns = [
-    path("", RedirectView("mybnb:search")),
+    path("", RedirectView.as_view(pattern_name="mybnb:search")),
     path("search/", search, name="search"),
     path("preview_home/<str:doc_id>", preview_home, name="preview"),
 ]
