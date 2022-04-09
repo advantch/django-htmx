@@ -1,7 +1,7 @@
 from django.urls import path
 from django.views.generic import RedirectView
 
-from .views import search, preview_home
+from .views import preview_home, search
 
 app_name = "mybnb"
 urlpatterns = [

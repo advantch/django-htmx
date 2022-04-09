@@ -1,74 +1,74 @@
 {% load humanize %}
 <div class="fixed z-50 inset-0 overflow-y-auto" role="dialog" aria-modal="true" id="previewContainer">
-  <div class="flex min-h-screen text-center md:block md:px-2 lg:px-4" style="font-size: 0">
+    <div class="flex min-h-screen text-center md:block md:px-2 lg:px-4" style="font-size: 0">
 
-    <div
-        x-transition:enter="ease-out duration-300"
-        x-transition:enter-start="opacity-0 "
-        x-transition:enter-end="opacity-100 "
-        x-transition:leave="ease-in duration-200"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
+        <div
+            x-transition:enter="ease-out duration-300"
+            x-transition:enter-start="opacity-0 "
+            x-transition:enter-end="opacity-100 "
+            x-transition:leave="ease-in duration-200"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
             class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity md:block" aria-hidden="true"></div>
 
-    <span class="hidden md:inline-block md:align-middle md:h-screen" aria-hidden="true">&#8203;</span>
+        <span class="hidden md:inline-block md:align-middle md:h-screen" aria-hidden="true">&#8203;</span>
 
-    <div
-      x-transition:enter="ease-out duration-300"
-        x-transition:enter-start="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
-        x-transition:enter-end="opacity-100 translate-y-0 md:scale-100"
-        x-transition:leave="ease-in duration-200"
-        x-transition:leave-start="opacity-100 translate-y-0 md:scale-100"
-        x-transition:leave-end="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
+        <div
+            x-transition:enter="ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
+            x-transition:enter-end="opacity-100 translate-y-0 md:scale-100"
+            x-transition:leave="ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0 md:scale-100"
+            x-transition:leave-end="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
             class="flex text-base text-left transform transition w-full md:inline-block md:max-w-2xl md:px-4 md:my-8 md:align-middle lg:max-w-4xl">
-      <div class="w-full relative flex items-center bg-white px-4 pt-14 pb-8 overflow-hidden shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
+            <div class="w-full relative flex items-center bg-white px-4 pt-14 pb-8 overflow-hidden shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
 
-          <button type="button"
-                onclick="document.getElementById('previewContainer').remove()"
-                class="absolute top-4 right-4 text-gray-400 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8">
-          <span class="sr-only">Close</span>
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+                <button type="button"
+                    onclick="document.getElementById('previewContainer').remove()"
+                    class="absolute top-4 right-4 text-gray-400 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8">
+                    <span class="sr-only">Close</span>
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
 
-        <div class="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
-          <div class="sm:col-span-4 lg:col-span-5">
-            <div class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden">
-              <img src="{{ home.image_url }}" alt="{{ home.address }}" class="object-center object-cover">
-            </div>
-          </div>
-          <div class="sm:col-span-8 lg:col-span-7 flex flex-col h-full">
-            <h2 class="text-2xl font-extrabold text-gray-700 sm:pr-12">{{ home.city }}, {{ home.country }}</h2>
-            <h4 class="text-lg font-semibold text-gray-600 sm:pr-12 mt-2">{{ home.address }}</h4>
+                <div class="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
+                    <div class="sm:col-span-4 lg:col-span-5">
+                        <div class="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden">
+                            <img src="{{ home.image_url }}" alt="{{ home.address }}" class="object-center object-cover">
+                        </div>
+                    </div>
+                    <div class="sm:col-span-8 lg:col-span-7 flex flex-col h-full">
+                        <h2 class="text-2xl font-extrabold text-gray-700 sm:pr-12">{{ home.city }}, {{ home.country }}</h2>
+                        <h4 class="text-lg font-semibold text-gray-600 sm:pr-12 mt-2">{{ home.address }}</h4>
 
-            <section aria-labelledby="information-heading" class="mt-3">
-              <h3 id="information-heading" class="sr-only">Product information</h3>
+                        <section aria-labelledby="information-heading" class="mt-3">
+                            <h3 id="information-heading" class="sr-only">Product information</h3>
 
-              <p class=" text-gray-900">Total Price: ${{ home.price|floatformat:"0"|intcomma }}</p>
+                            <p class=" text-gray-900">Total Price: ${{ home.price|floatformat:"0"|intcomma }}</p>
 
 
-              <div class="mt-6">
-                <h4 class="sr-only">Description</h4>
+                            <div class="mt-6">
+                                <h4 class="sr-only">Description</h4>
 
-                <p class="text-sm text-gray-700">{{ home.description }}</p>
-              </div>
-            </section>
+                                <p class="text-sm text-gray-700">{{ home.description }}</p>
+                            </div>
+                        </section>
 
-            <section aria-labelledby="options-heading" class="flex-grow">
-              <h3 id="options-heading" class="sr-only">Actions</h3>
+                        <section aria-labelledby="options-heading" class="flex-grow">
+                            <h3 id="options-heading" class="sr-only">Actions</h3>
 
-              <div class="h-full flex items-end justify-end">
-                <div class="mt-6">
-                  <button type="submit" class="w-full bg-sky-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
-                      Book Property
-                  </button>
+                            <div class="h-full flex items-end justify-end">
+                                <div class="mt-6">
+                                    <button type="submit" class="w-full bg-sky-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">
+                                        Book Property
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
-              </div>
-            </section>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

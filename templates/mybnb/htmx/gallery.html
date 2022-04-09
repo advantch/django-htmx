@@ -3,11 +3,11 @@
     <li class="relative">
         <!--like button-->
         <svg xmlns="http://www.w3.org/2000/svg"
-             class="h-6 w-6 absolute top-2 right-2 cursor-pointer fill-gray-600 stroke-white" viewBox="0 0 20 20"
-             fill="currentColor">
+            class="h-6 w-6 absolute top-2 right-2 cursor-pointer fill-gray-600 stroke-white" viewBox="0 0 20 20"
+            fill="currentColor">
             <path fill-rule="evenodd"
-                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                  clip-rule="evenodd"/>
+                d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                clip-rule="evenodd"/>
         </svg>
 
         <!--Image-->
@@ -16,10 +16,10 @@
                 <img src="{{ home.image_url }}" alt="" class="object-cover pointer-events-none group-hover:opacity-75">
             </div>
             <button type="button"
-                    hx-get="{% url "mybnb:preview" home.id %}"
-                    hx-target="body"
-                    hx-swap="beforeend"
-                    class="absolute inset-0 focus:outline-none z-30" >
+                hx-get="{% url "mybnb:preview" home.id %}"
+                hx-target="body"
+                hx-swap="beforeend"
+                class="absolute inset-0 focus:outline-none z-30" >
                 <span class="sr-only">{{ home.address }}</span>
             </button>
         </div>

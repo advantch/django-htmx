@@ -1,6 +1,5 @@
 import logging
 
-
 from apps.mybnb.models import Home
 from apps.mybnb.search_index import search_index
 
@@ -32,12 +31,17 @@ def format_filter_params(query_dict, filter_attrs):
     Example:
     multiple items -> ["multi = one", "multi = two"],
     one item ->  ["category = 'Value with spaces enclose in quotes'" ]
-    
+
     https://docs.meilisearch.com/reference/api/search.html#filter
     """
     filters = []
     for filter_attr in filter_attrs:
-        filters.append([f"{filter_attr} = {format_search_str(f)}" for f in query_dict.getlist(filter_attr)])
+        filters.append(
+            [
+                f"{filter_attr} = {format_search_str(f)}"
+                for f in query_dict.getlist(filter_attr)
+            ]
+        )
     return filters
 
 
@@ -47,15 +51,16 @@ def get_opt_params(query_dict, filter_attrs=None, sort_attrs=None):
     """
     filter_attrs = filter_attrs or DEFAULT_FILTER_ATTRS
     sort_attrs = sort_attrs or DEFAULT_SORT_ATTRS
-    
+
     opt_params = {}
     opt_params.update({"filter": format_filter_params(query_dict, filter_attrs)})
     opt_params.update({"sort": format_sort_params(query_dict, sort_attrs)})
-    
+
     # offset
     opt_params["offset"] = int(query_dict.get("next_offset", 0))
-    
+
     return opt_params
+
 
 #  Utility functions for generating fake data and updating index
 
@@ -70,13 +75,13 @@ def setup_attributes():
 def index_homes(docs=None):
     """Index all the homes"""
     docs = docs or [d.dict() for d in Home.objects.all()]
-    
+
     logger.info("indexing...")
     result = search_index.add_documents(docs)
-    
+
     logger.info("setting up filter & sort attributes...")
     setup_attributes()
-    
+
     logger.info("done")
     return result
 

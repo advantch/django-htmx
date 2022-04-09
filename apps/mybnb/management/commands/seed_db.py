@@ -1,11 +1,11 @@
 import json
+import logging
 import random
 import time
-import logging
 
 import requests
-from django.core.management.base import BaseCommand
 from django.conf import settings
+from django.core.management.base import BaseCommand
 from faker import Faker
 
 from apps.mybnb.models import Home
@@ -20,13 +20,16 @@ def fetch_images_from_unsplash(limit=1000, query="houses"):
     API_URL = "https://api.unsplash.com/search/photos/"
 
     for page in range(1, 25):
-        url = f"{API_URL}?query={query}&per_page=30&page={page}&client_id={settings.UNSPLASH_API_KEY}"
+        url = (
+            f"{API_URL}?query={query}&per_page=30&page={page}&"
+            f"client_id={settings.UNSPLASH_API_KEY}"
+        )
         response = requests.get(url)
         time.sleep(2)
         results.extend(response.json()["results"])
 
     data.update({"results": results})
-    with open(f"json_data.json", "w") as o:
+    with open("json_data.json", "w") as o:
         json.dump(data, o)
     return data
 
@@ -55,6 +58,6 @@ def generate_data():
 
 class Command(BaseCommand):
     help = "Seed database with sample data."
-    
+
     def handle(self, *args, **options):
         generate_data()

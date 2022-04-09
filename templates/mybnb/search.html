@@ -6,9 +6,9 @@
         <div class="group flex mt-12 pt-2 justify-between bg-slate-100 sticky top-0 z-40">
             {% include "mybnb/components/header.html" %}
             <form id="searchForm" class="flex space-x-2 opacity-100 items-center"
-                  hx-post="{% url 'mybnb:search' %}"
-                  hx-target="#search-results"
-                >
+                hx-post="{% url 'mybnb:search' %}"
+                hx-target="#search-results"
+            >
                 {% include "mybnb/components/filters.html" %}
                 {% include "mybnb/components/sort.html" %}
                 {% include "mybnb/components/search_field.html" %}
