@@ -1,7 +1,0 @@
-{% load render_table from django_tables2 %}
-
-<!--Include id="tableContainer" in enclosing container -->
-<div id="tableContainer" class="overflow-x-auto max-w-5xl">
-    <p class="font-semibold text-xs px-2 text-gray-600">Showing page {{ table.page.number }} of {{ table.paginator.num_pages }}</p>
-    {% render_table table "common/django_tables2.html" %}
-</div>

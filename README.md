@@ -1,26 +1,16 @@
-# Django Tutorials Starter Repo
+# Django HTMX MeiliSearch
 
 ## Getting started
 
-### Create a virtual env and install requirements
+This project uses docker and docker-compose
+
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+docker-compose build
+make migrate_d
+make run_d
 ```
 
-### Migrate DB and Run
-
-```
-python manage.py migrate
-python manage.py runserver 0.0.0.0:8000
-
-or
-
-make migrate
-make run
-```
 
 ### Add a new app
 

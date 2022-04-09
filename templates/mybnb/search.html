@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="flex flex-col mx-auto container">
+        <!--header-->
+        <div class="group flex mt-12 pt-2 justify-between bg-slate-100 sticky top-0 z-40">
+            {% include "mybnb/components/header.html" %}
+            <form id="searchForm" class="flex space-x-2 opacity-100 items-center"
+                  hx-post="{% url 'mybnb:search' %}"
+                  hx-target="#search-results"
+                >
+                {% include "mybnb/components/filters.html" %}
+                {% include "mybnb/components/sort.html" %}
+                {% include "mybnb/components/search_field.html" %}
+            </form>
+        </div>
+        <div class="flex justify-end mb-2 bg-slate-100 sticky top-12 z-40">
+            {% include "mybnb/htmx/stats.html" %}
+        </div>
+        <div>
+            <p id="indicator" class="htmx-indicator indicator">Working ...</p>
+            <p id="seeddb" class="htmx-indicator indicator">Adding properties to your index</p>
+            <p id="cleardb" class="htmx-indicator indicator">Clearing all ...</p>
+        </div>
+
+        <!--Content-->
+        <div class="mx-auto container mt-5">
+            <section class="mt-8 pb-16" aria-labelledby="gallery-heading">
+                <ul id="search-results" role="list"
+                    class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                    {% include "mybnb/htmx/gallery.html" %}
+                </ul>
+            </section>
+        </div>
+    </div>
+{% endblock %}

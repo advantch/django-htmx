@@ -1,4 +1,4 @@
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,17 +19,23 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_tables2",
-    "django_htmx",
-    "apps.search_metrics.apps.SearchMetricsConfig"
+    "django.contrib.humanize"
 ]
+THIRD_PARTY = [
+    "django_htmx",
+]
+INTERNAL_APPS = [
+    "apps.mybnb.apps.MybnbConfig"
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY + INTERNAL_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -120,3 +126,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # allow delete of multiple items in admin
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000000000
+
+MEILISEARCH_URL = os.getenv("MEILISEARCH_URL", "http://meilisearch:7700/")
+MEILISEARCH_API_TOKEN = os.getenv("MEILISEARCH_API_TOKEN ", "TESTKEYLOCAL")
+UNSPLASH_API_KEY = os.getenv("UNSPLASH_API_KEY", "S9WvRymjmSiXJn-aZYXAWqpWqYVDw-tzJMrfNRKxICs")

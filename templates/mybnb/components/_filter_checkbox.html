@@ -1,0 +1,10 @@
+<div class="relative flex items-start py-2 px-2">
+    <div class="mr-3 flex items-center h-5">
+        <input id="id_{{ name|slugify }}" name="{{ prefix }}" value="{{ name }}"
+               type="checkbox"
+            class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+    </div>
+    <div class="min-w-0 flex-1 text-sm">
+        <label for="{{ name|slugify }}" class="font-medium text-gray-700 select-none">{{ name }}</label>
+    </div>
+</div>
