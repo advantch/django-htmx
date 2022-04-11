@@ -37,16 +37,9 @@
         </div>
         {# infinite loop #}
         {% if forloop.last and total > 19 %}
-            <div>
-                <input
-                    hx-post="{% url 'mybnb:search' %}"
-                    hx-trigger="revealed"
-                    hx-swap="beforeend"
-                    hx-target="#search-results"
-                    name="next_offset"
-                    class="opacity-0"
-                    value="{{ next_offset }}"
-                />
+            <div
+                _="on intersection(intersecting)
+                    if intersecting log 'intersecting' then call infiniteScroll()">
             </div>
         {% endif %}
     </li>

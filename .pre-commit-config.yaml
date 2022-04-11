@@ -1,4 +1,4 @@
-exclude: 'docs|node_modules|migrations|.git|.tox|static/css/app.css|config/settings.py'
+exclude: 'docs|node_modules|migrations|.git|.tox|config/settings.py'
 default_stages: [commit]
 fail_fast: false
 
@@ -11,7 +11,7 @@ repos:
       - id: check-yaml
 
   - repo: https://github.com/psf/black
-    rev: 22.1.0
+    rev: 22.3.0
     hooks:
       - id: black
 
@@ -26,8 +26,12 @@ repos:
       - id: flake8
 
   - repo: https://github.com/rtts/djhtml
-    rev: v1.4.11
+    rev: v1.5.0
     hooks:
       - id: djhtml
+      - id: djcss
+      - id: djjs
+        # Exclude JavaScript files in vendor directories
+        exclude: .*/vendor/.*
     args:
       - --tabwidth=2

@@ -12,7 +12,7 @@ DEFAULT_SEARCH_ATTRS = ["city", "address"]
 
 def format_search_str(param):
     """Enclose in quotes if there is a space"""
-    return f"'{param}'" if " " in param else param
+    return f'"{param}"' if " " in param else param
 
 
 def format_sort_params(query_dict, sort_attrs):

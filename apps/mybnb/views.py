@@ -24,12 +24,13 @@ def search(request):
 
     # fetch results from the index and add them to the context
     results = search_index.search(query=query, opt_params=opt_params)
+    next_offset = opt_params.get("offset", 0) + 20  # similar to pagination,
     context.update(
         {
             "homes": results["hits"],
             "total": results["nbHits"],
             "processing_time": results["processingTimeMs"],
-            "next_offset": opt_params.get("offset", 0) + 20,  # used for infinite scroll
+            "next_offset": next_offset,
         }
     )
     return render(request, template_name, context)

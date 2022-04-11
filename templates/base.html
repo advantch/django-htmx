@@ -20,12 +20,13 @@
         <script src="https://cdn.tailwindcss.com"></script>
 
         <!--In production save these to your static files -->
-        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+        <script src="https://unpkg.com/hyperscript.org@0.9.5" defer></script>
         <script src="{% static 'js/htmx/htmx.min.js' %}" defer></script>
-
 
     </head>
 
+    {# include csrf token in header of every request #}
     <body id="id-body" class="bg-slate-100"  hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
 
         {% block content %}
