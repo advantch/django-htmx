@@ -10,6 +10,7 @@
                 hx-target="#search-results"
             >
                 {% include "mybnb/components/filters.html" %}
+                {% include "mybnb/components/offset.html" %}
                 {% include "mybnb/components/sort.html" %}
                 {% include "mybnb/components/search_field.html" %}
             </form>
@@ -37,11 +38,23 @@
 
 {% block footer_js %}
     <script>
-        /** the only js you have to write **/
+        /**
+         * Fetches
+         * :) The only js you have to write
+         * **/
         function infiniteScroll(){
             const form = document.getElementById("searchForm")
-            let formData = new FormData(form)
-            htmx.ajax('POST', '{% url 'mybnb:search' %}', {target:'#search-results', swap:'beforeend', ...formData})
+            const formData = new FormData(form)
+            // add form values to object
+            formData.append('apply_offset', true);
+            let data = {}
+            formData.forEach(function(value, key){
+                data[key] = value;
+            });
+            // handle multiselect values
+            data.country = formData.getAll('country')
+            const context = {target:'#search-results', swap:'beforeend', values: data}
+            htmx.ajax('POST', '{% url 'mybnb:search' %}', context)
         }
     </script>
 {% endblock %}

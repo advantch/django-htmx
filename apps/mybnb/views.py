@@ -19,6 +19,7 @@ def search(request):
 
     # fetch and format search query parameters
     query_dict = request.GET if request.method == "GET" else request.POST
+    print(query_dict)
     opt_params = get_opt_params(query_dict)
     query = query_dict.get("query", None)
 

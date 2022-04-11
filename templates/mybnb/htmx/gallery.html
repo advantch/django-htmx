@@ -35,11 +35,11 @@
                 </p>
             </div>
         </div>
-        {# infinite loop #}
+        {# infinite scroll only if 20 or more items in search query #}
         {% if forloop.last and total > 19 %}
             <div
                 _="on intersection(intersecting)
-                    if intersecting log 'intersecting' then call infiniteScroll()">
+                    if intersecting call infiniteScroll()">
             </div>
         {% endif %}
     </li>
@@ -48,4 +48,5 @@
 {# oob response to show search stats under the search button #}
 {% if request.htmx %}
     {% include "mybnb/htmx/stats.html" %}
+    {% include "mybnb/components/offset.html" %}
 {% endif %}
