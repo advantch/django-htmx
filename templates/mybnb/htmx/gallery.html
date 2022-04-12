@@ -39,7 +39,7 @@
         {% if forloop.last and total > 19 %}
             <div
                 _="on intersection(intersecting)
-                    if intersecting call infiniteScroll()">
+                    if intersecting remove me then call infiniteScroll()">
             </div>
         {% endif %}
     </li>

@@ -58,9 +58,7 @@ def get_opt_params(query_dict, filter_attrs=None, sort_attrs=None):
 
     # offset
     apply_offset = query_dict.get("apply_offset", False)
-    print(apply_offset)
     opt_params["offset"] = int(query_dict.get("next_offset", 0)) if apply_offset == 'true' else 0
-    print(opt_params)
 
     return opt_params
 
