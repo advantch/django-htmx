@@ -6,14 +6,31 @@ This project uses docker and docker-compose
 
 
 ```bash
+
 docker-compose build
 make migrate_d
 make run_d
+
+# seed db with dummy data
+make seed_d
+
+# finally add the docs to the search engine
+make update_index
 ```
 
-# Database
-The project is set up to use postgres 
-See DATABASES setting in settings.py to switch to sqlite
+### Database
+The project is set up to use postgres.
+
+To use sqlite replace the default database with the following:
+
+```
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
+```
 
 ### Add a new app
 

@@ -31,7 +31,7 @@ migrate_d: ## migrate
 	$(EXEC_DOCKER) python3 manage.py migrate
 
 seed_db: ## seed db
-	$(EXEC_DOCKER) python3 manage.py seed_db
+	$(EXEC_DOCKER) python3 manage.py seed_db --verbosity=2
 
 update_index: ## update_index
 	$(EXEC_DOCKER) python3 manage.py update_index

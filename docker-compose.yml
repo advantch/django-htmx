@@ -8,10 +8,14 @@ services:
   django:
     build: .
     restart: unless-stopped
+    depends_on:
+      - db
     volumes:
       - .:/app:z
-    env_file:
-      - ./.env
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     ports:
       - "8000:8000"
     command: python3 manage.py runserver 0.0.0.0:8000
