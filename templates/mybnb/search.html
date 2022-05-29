@@ -9,6 +9,7 @@
                 hx-post="{% url 'mybnb:search' %}"
                 hx-target="#search-results"
             >
+          
                 {% include "mybnb/components/filters.html" %}
                 {% include "mybnb/components/offset.html" %}
                 {% include "mybnb/components/sort.html" %}
@@ -37,6 +38,7 @@
 {% endblock %}
 
 {% block footer_js %}
+    {{ block.super }}
     <script>
         /**
          * Fetches
@@ -52,9 +54,17 @@
                 data[key] = value;
             });
             // handle multiselect values
+            const headers = {
+                "X-CSRFToken": "{{ csrf_token }}"
+            }
             data.country = formData.getAll('country')
-            const context = {target:'#search-results', swap:'beforeend', values: data}
-            htmx.ajax('POST', '{% url 'mybnb:search' %}', context)
+            const context = {
+                target:'#search-results', 
+                headers: headers,
+                swap:'beforeend', values: data
+            }
+            
+            htmx.ajax('POST', "{% url 'mybnb:search' %}", context)
         }
     </script>
 {% endblock %}

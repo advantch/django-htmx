@@ -13,12 +13,13 @@ make migrate_d
 # seed db with dummy data
 make seed_db
 
-
-# finally add the docs to the search engine
-make update_index
-
 # run the app
 make run_d
+
+# finally add the docs to the search engine
+# your app needs to be already running
+make update_index
+
 ```
 
 ### Database
@@ -34,6 +35,12 @@ DATABASES = {
     }
 }
 ```
+
+### Security
+
+CSRF middleware is disabled for this demo. 
+
+This should be enabled in production.
 
 ### Add a new app
 
