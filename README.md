@@ -9,13 +9,16 @@ This project uses docker and docker-compose
 
 docker-compose build
 make migrate_d
-make run_d
 
 # seed db with dummy data
-make seed_d
+make seed_db
+
 
 # finally add the docs to the search engine
 make update_index
+
+# run the app
+make run_d
 ```
 
 ### Database
