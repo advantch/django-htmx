@@ -11,6 +11,9 @@ make migrate_d
 make run_d
 ```
 
+# Database
+The project is set up to use postgres 
+See DATABASES setting in settings.py to switch to sqlite
 
 ### Add a new app
 

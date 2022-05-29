@@ -1,3 +1,4 @@
+import os
 import json
 import logging
 import random
@@ -29,7 +30,8 @@ def fetch_images_from_unsplash(limit=1000, query="houses"):
         results.extend(response.json()["results"])
 
     data.update({"results": results})
-    with open("json_data.json", "w") as o:
+    file_path = os.path.join(settings.BASE_DIR,"json_data.json")
+    with open(file_path) as o:
         json.dump(data, o)
     return data
 

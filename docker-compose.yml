@@ -2,11 +2,11 @@ version: '3'
 
 volumes:
   meili-search: {}
+  pg: {}
 
 services:
   django:
     build: .
-    image: htmx-meili
     restart: unless-stopped
     volumes:
       - .:/app:z
@@ -16,6 +16,14 @@ services:
       - "8000:8000"
     command: python3 manage.py runserver 0.0.0.0:8000
 
+  db:
+    image: postgres
+    volumes:
+      - pg:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
 
   meilisearch:
     image: getmeili/meilisearch

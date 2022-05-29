@@ -6,3 +6,4 @@ factory_boy==3.2.1
 Faker~=13.3.0
 shortuuid==1.0.8
 meilisearch==0.18.2
+psycopg2==2.9.3
