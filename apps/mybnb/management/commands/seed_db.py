@@ -48,7 +48,8 @@ def fake_house_data():
 def generate_data():
     """Generate data"""
     logger.info("creating fake data...")
-    f = open("json_data.json")
+    file_path = os.path.join(settings.BASE_DIR,"json_data.json")
+    f = open(file_path)
     data = json.load(f)
     f.close()
     for i in data["results"]:
