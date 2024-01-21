@@ -9,6 +9,10 @@ class SearchMetricsTable(tables.Table):
 
     @classmethod
     def render_paginated_table(cls, request):
-        table = cls(data=SearchMetric.objects.all())
+        sort = request.GET.get("sort", None)
+        objects = SearchMetric.objects.all()
+        if sort:
+            objects = objects.order_by(sort)
+        table = cls(data=objects)
         table.paginate(page=request.GET.get("page", 1), per_page=25)
         return table
