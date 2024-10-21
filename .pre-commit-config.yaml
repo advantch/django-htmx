@@ -1,32 +1,32 @@
 exclude: 'docs|node_modules|migrations|.git|.tox|static/css/app.css|config/settings.py'
-default_stages: [commit]
+default_stages: [pre-commit]
 fail_fast: false
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v5.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
 
   - repo: https://github.com/psf/black
-    rev: 22.1.0
+    rev: 24.10.0
     hooks:
       - id: black
 
   - repo: https://github.com/pycqa/isort
-    rev: 5.10.1
+    rev: 5.13.2
     hooks:
       - id: isort
 
   - repo: https://github.com/pycqa/flake8
-    rev: 4.0.1
+    rev: 7.1.1
     hooks:
       - id: flake8
 
   - repo: https://github.com/rtts/djhtml
-    rev: v1.4.11
+    rev: 3.0.7
     hooks:
       - id: djhtml
     args:
